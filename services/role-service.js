@@ -939,6 +939,7 @@ function validateNoPrivilegeEscalation(scopes, actingClassUser, classroom) {
     const userScopes = getUserScopes(actingClassUser, classroom);
     const actorScopes = new Set([...userScopes.global, ...userScopes.class]);
     const globalRoleName = getUserRoleName(actingClassUser);
+    
     if (globalRoleName && ROLES[globalRoleName]?.global) {
         for (const scope of ROLES[globalRoleName].global) {
             actorScopes.add(scope);
